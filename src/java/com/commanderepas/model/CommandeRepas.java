@@ -2,11 +2,17 @@ package com.commanderepas.model;
 
 public class CommandeRepas 
 {
+    private int idCommandeRepas;
     private int idCommande; 
     private int idRepas; 
     private int quantite; 
 
     public CommandeRepas() {}
+
+    public int getIdCommandeRepas() 
+    {
+        return idCommandeRepas;
+    }
 
     public int getIdCommande() 
     {
@@ -23,6 +29,11 @@ public class CommandeRepas
         return quantite;
     }
 
+    public void setIdCommandeRepas(int idCommandeRepas) 
+    {
+        this.idCommandeRepas = idCommandeRepas;
+    }
+    
     public void setIdCommande(int idCommande) 
     {
         this.idCommande = idCommande;
