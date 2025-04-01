@@ -1,5 +1,6 @@
 package com.commanderepas.dao;
 
+import com.commanderepas.jdbc.Jdbc;
 import com.commanderepas.model.Client;
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,9 +10,10 @@ public class ClientDAO
 {
     private Connection connection;
 
-    public ClientDAO(Connection connection) 
+    public ClientDAO() 
     {
-        this.connection = connection;
+        Jdbc jdbc = new Jdbc(); 
+        this.connection = jdbc.getConnection();
     }
 
     public boolean ajouterClient(Client client) 
