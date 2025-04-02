@@ -3,6 +3,8 @@ package com.commanderepas.dao;
 import com.commanderepas.jdbc.Jdbc;
 import com.commanderepas.model.Repas;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepasDAO 
 {
@@ -56,6 +58,32 @@ public class RepasDAO
             System.out.println("Erreur : " + e.getMessage()); 
         }
         return false;
+    }
+    
+    public List<Repas> listeRepas() 
+    {
+        String sql = "SELECT * FROM repas;"; 
+        List<Repas> listeRepas = new ArrayList<>(); 
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) 
+        {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) 
+            {
+                Repas repas = new Repas(); 
+                repas.setIdRepas(rs.getInt("idRepas"));
+                repas.setNomRepas(rs.getString("nomRepas"));
+                repas.setPrixRepas(rs.getInt("prix"));
+                repas.setDescription(rs.getString("description"));
+                repas.setPhoto(rs.getString("photo"));
+                
+                listeRepas.add(repas);     
+            }
+            return listeRepas;
+        } catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     public boolean supprimerRepas(int idRepas) 
