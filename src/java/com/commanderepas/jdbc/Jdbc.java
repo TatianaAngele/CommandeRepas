@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Jdbc 
 {
-    private static final String URL = "jdbc:mysql://localhost:3306/commanderepas";
+    private static final String URL = "jdbc:mysql://localhost:3306/commanderepas?useUnicode=true&characterEncoding=utf8";
     private static final String USER = "root";
     private static final String PASSWORD = "";
     private static Connection connection;
