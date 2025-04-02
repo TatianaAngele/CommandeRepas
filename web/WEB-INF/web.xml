@@ -12,5 +12,15 @@
     <session-config>
         <session-timeout>30</session-timeout> 
     </session-config>
-
+    
+    <!-- Servlet pour récuperer les repas -->
+    <servlet>
+        <servlet-name>ListeRepas</servlet-name>
+        <servlet-class>com.commanderepas.servlets.ListeRepas</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListeRepas</servlet-name>
+        <url-pattern>/repas</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
